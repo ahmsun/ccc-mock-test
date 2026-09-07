@@ -1,0 +1,5310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CCC Question Bank | Computer Course Preparation</title>
+
+<style>
+/* ================================
+   RESET & ROOT
+================================ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --secondary:#7c3aed;
+    --success:#16a34a;
+    --danger:#dc2626;
+    --warning:#f59e0b;
+    --bg:#f1f5f9;
+    --card:#ffffff;
+    --text:#1e293b;
+    --muted:#64748b;
+    --border:#e2e8f0;
+    --shadow:0 10px 30px rgba(15,23,42,.08);
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:#334155;
+    --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+}
+
+/* ================================
+   HEADER
+================================ */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:linear-gradient(135deg,#1d4ed8,#7c3aed);
+    color:white;
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    padding:14px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:12px;
+    background:white;
+    color:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.logo h1{
+    font-size:20px;
+}
+
+.logo small{
+    opacity:.8;
+    font-size:11px;
+}
+
+.nav-actions{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.icon-btn{
+    border:none;
+    background:rgba(255,255,255,.18);
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ================================
+   HERO
+================================ */
+.hero{
+    max-width:1400px;
+    margin:auto;
+    padding:35px 25px;
+}
+
+.hero-box{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    border-radius:22px;
+    padding:45px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+    overflow:hidden;
+    position:relative;
+}
+
+.hero-box:before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,.08);
+    border-radius:50%;
+    right:-80px;
+    top:-100px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+}
+
+.hero h2{
+    font-size:36px;
+    margin-bottom:12px;
+}
+
+.hero p{
+    max-width:650px;
+    opacity:.9;
+    line-height:1.7;
+}
+
+.hero-stats{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:1;
+}
+
+.stat{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    padding:18px 22px;
+    border-radius:15px;
+    min-width:120px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:24px;
+}
+
+/* ================================
+   DASHBOARD
+================================ */
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:0 25px 40px;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:30px;
+}
+
+.dashboard-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.dashboard-card span{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.dashboard-card h3{
+    margin-top:8px;
+    font-size:28px;
+}
+
+/* ================================
+   SECTION
+================================ */
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:30px 0 18px;
+}
+
+.section-title h2{
+    font-size:24px;
+}
+
+.section-title p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ================================
+   CHAPTER CARDS
+================================ */
+.chapter-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.chapter-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.chapter-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--primary);
+}
+
+.chapter-number{
+    width:45px;
+    height:45px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.chapter-card h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.chapter-card p{
+    font-size:13px;
+    color:var(--muted);
+    min-height:40px;
+}
+
+.chapter-info{
+    display:flex;
+    justify-content:space-between;
+    margin:18px 0;
+    font-size:13px;
+    color:var(--muted);
+}
+
+.chapter-actions{
+    display:flex;
+    gap:10px;
+}
+
+.btn{
+    border:none;
+    padding:11px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--primary-dark);
+}
+
+.btn-outline{
+    border:1px solid var(--primary);
+    background:transparent;
+    color:var(--primary);
+}
+
+.btn-full{
+    width:100%;
+}
+
+/* ================================
+   FINAL EXAM
+================================ */
+.exam-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.exam-card{
+    background:var(--card);
+    border-radius:18px;
+    padding:25px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+
+.exam-card .exam-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+.exam-card h3{
+    margin-bottom:10px;
+}
+
+.exam-card p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+/* ================================
+   TEST SCREEN
+================================ */
+#testScreen{
+    display:none;
+    min-height:100vh;
+    background:var(--bg);
+}
+
+.test-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    padding:12px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.test-title h3{
+    font-size:17px;
+}
+
+.test-title span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.timer{
+    background:#fee2e2;
+    color:#dc2626;
+    padding:10px 16px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.test-layout{
+    max-width:1400px;
+    margin:auto;
+    padding:25px;
+    display:grid;
+    grid-template-columns:1fr 300px;
+    gap:25px;
+}
+
+.question-area{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.question-top{
+    display:flex;
+    justify-content:space-between;
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.question-text{
+    font-size:21px;
+    font-weight:600;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:14px;
+}
+
+.option{
+    border:2px solid var(--border);
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.2s;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.option:hover{
+    border-color:var(--primary);
+}
+
+.option.selected{
+    border-color:var(--primary);
+    background:rgba(37,99,235,.08);
+}
+
+.option-letter{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.option.selected .option-letter{
+    background:var(--primary);
+    color:white;
+}
+
+.question-buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.left-buttons,
+.right-buttons{
+    display:flex;
+    gap:10px;
+}
+
+/* ================================
+   PALETTE
+================================ */
+.palette{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:var(--shadow);
+    height:max-content;
+    position:sticky;
+    top:90px;
+}
+
+.palette h3{
+    margin-bottom:15px;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+}
+
+.palette-btn{
+    aspect-ratio:1;
+    border:none;
+    border-radius:8px;
+    background:#e2e8f0;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.palette-btn.current{
+    outline:3px solid var(--primary);
+}
+
+.palette-btn.answered{
+    background:#22c55e;
+    color:white;
+}
+
+.palette-btn.review{
+    background:#a855f7;
+    color:white;
+}
+
+.legend{
+    margin-top:20px;
+    font-size:12px;
+    color:var(--muted);
+}
+
+.legend div{
+    margin:8px 0;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    display:inline-block;
+    border-radius:3px;
+    margin-right:6px;
+}
+
+.dot.green{background:#22c55e;}
+.dot.purple{background:#a855f7;}
+.dot.gray{background:#e2e8f0;}
+
+/* ================================
+   RESULT SCREEN
+================================ */
+#resultScreen{
+    display:none;
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.result-box{
+    max-width:900px;
+    margin:auto;
+    background:var(--card);
+    border-radius:22px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+    padding:35px;
+}
+
+.result-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.result-icon{
+    font-size:65px;
+}
+
+.result-header h1{
+    margin:12px 0;
+}
+
+.score-circle{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    margin:25px auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.score-circle strong{
+    font-size:42px;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin:30px 0;
+}
+
+.result-stat{
+    padding:18px;
+    background:var(--bg);
+    border-radius:12px;
+    text-align:center;
+}
+
+.result-stat strong{
+    display:block;
+    font-size:24px;
+    margin-top:5px;
+}
+
+.result-actions{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* ================================
+   REVIEW
+================================ */
+.review-question{
+    background:var(--bg);
+    padding:20px;
+    border-radius:14px;
+    margin-bottom:18px;
+}
+
+.review-question h4{
+    margin-bottom:15px;
+}
+
+.review-answer{
+    padding:10px;
+    border-radius:8px;
+    margin-top:8px;
+    font-size:14px;
+}
+
+.review-answer.correct{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.review-answer.wrong{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+/* ================================
+   MODAL
+================================ */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.7);
+    z-index:2000;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-box{
+    background:var(--card);
+    width:100%;
+    max-width:450px;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+}
+
+.modal-box h2{
+    margin-bottom:10px;
+}
+
+.modal-box p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.modal-actions{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer{
+    text-align:center;
+    padding:25px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media(max-width:1000px){
+
+    .dashboard-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .test-layout{
+        grid-template-columns:1fr;
+    }
+
+    .palette{
+        position:relative;
+        top:0;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .navbar{
+        padding:12px 15px;
+    }
+
+    .logo h1{
+        font-size:16px;
+    }
+
+    .hero,
+    .container{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .hero-box{
+        padding:28px 22px;
+    }
+
+    .hero h2{
+        font-size:26px;
+    }
+
+    .hero-box{
+        display:block;
+    }
+
+    .hero-stats{
+        margin-top:25px;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dashboard-card{
+        padding:15px;
+    }
+
+    .test-header{
+        padding:10px 15px;
+    }
+
+    .test-layout{
+        padding:15px;
+    }
+
+    .question-area{
+        padding:20px;
+    }
+
+    .question-text{
+        font-size:18px;
+    }
+
+    .question-buttons{
+        flex-direction:column;
+    }
+
+    .left-buttons,
+    .right-buttons{
+        width:100%;
+    }
+
+    .left-buttons button,
+    .right-buttons button{
+        flex:1;
+    }
+
+    .result-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .nav-actions .hide-mobile{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header id="mainHeader">
+
+<div class="navbar">
+
+    <div class="logo" onclick="goHome()">
+        <div class="logo-icon">CCC</div>
+
+        <div>
+            <h1>CCC Question Bank</h1>
+            <small>Computer Course Preparation Portal</small>
+        </div>
+    </div>
+
+    <div class="nav-actions">
+        <button class="icon-btn hide-mobile" onclick="showDashboard()">🏠</button>
+        <button class="icon-btn" onclick="toggleDark()">🌙</button>
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<div id="homeScreen">
+
+<section class="hero">
+
+<div class="hero-box">
+
+<div class="hero-content">
+
+<h2>Prepare for CCC Exam Like a Pro 🚀</h2>
+
+<p>
+Practice chapter-wise questions, attempt timed tests and give final CCC mock exams.
+Track your performance and improve your score.
+</p>
+
+</div>
+
+<div class="hero-stats">
+
+<div class="stat">
+<strong id="totalQuestionCount">0</strong>
+Questions
+</div>
+
+<div class="stat">
+<strong>10</strong>
+Chapters
+</div>
+
+<div class="stat">
+<strong id="totalTests">0</strong>
+Tests
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+<!-- DASHBOARD -->
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card">
+<span>Questions Attempted</span>
+<h3 id="attemptedCount">0</h3>
+</div>
+
+<div class="dashboard-card">
+<span>Correct Answers</span>
+<h3 id="correctCount">0</h3>
+</div>
+
+<div class="dashboard-card">
+<span>Average Score</span>
+<h3 id="averageScore">0%</h3>
+</div>
+
+<div class="dashboard-card">
+<span>Best Score</span>
+<h3 id="bestScore">0%</h3>
+</div>
+
+</div>
+
+
+<div class="section-title">
+<div>
+<h2>📚 Chapter Wise Question Bank</h2>
+<p>Select any chapter and start practicing.</p>
+</div>
+</div>
+
+<div class="chapter-grid" id="chapterGrid"></div>
+
+
+<div class="section-title">
+<div>
+<h2>🏆 Final CCC Mock Exams</h2>
+<p>Practice with mixed questions from all chapters.</p>
+</div>
+</div>
+
+
+<div class="exam-grid">
+
+<div class="exam-card">
+<div class="exam-icon">📝</div>
+<h3>CCC Final Mock Test</h3>
+<p>Mixed questions from all chapters with timer and instant result.</p>
+<button class="btn btn-primary btn-full" onclick="startFinalExam()">
+Start Final Exam
+</button>
+</div>
+
+<div class="exam-card">
+<div class="exam-icon">🎲</div>
+<h3>Random Practice Test</h3>
+<p>Random questions for quick daily practice.</p>
+<button class="btn btn-primary btn-full" onclick="startRandomTest()">
+Start Random Test
+</button>
+</div>
+
+<div class="exam-card">
+<div class="exam-icon">❌</div>
+<h3>Wrong Answer Practice</h3>
+<p>Practice questions where you previously made mistakes.</p>
+<button class="btn btn-outline btn-full" onclick="startWrongPractice()">
+Practice Wrong Questions
+</button>
+</div>
+
+</div>
+
+</main>
+
+
+<footer>
+© 2026 CCC Question Bank | Computer Course Preparation System
+</footer>
+
+</div>
+
+
+<!-- ================= TEST SCREEN ================= -->
+
+<div id="testScreen">
+
+<div class="test-header">
+
+<div class="test-title">
+<h3 id="testTitle">CCC Test</h3>
+<span id="testSubtitle">Question 1 of 20</span>
+</div>
+
+<div class="timer">
+⏱ <span id="timer">20:00</span>
+</div>
+
+</div>
+
+
+<div class="test-layout">
+
+<div class="question-area">
+
+<div class="question-top">
+<span id="questionNumber">Question 1</span>
+<span id="chapterName"></span>
+</div>
+
+<div class="question-text" id="questionText"></div>
+
+<div class="options" id="optionsContainer"></div>
+
+
+<div class="question-buttons">
+
+<div class="left-buttons">
+<button class="btn btn-outline" onclick="previousQuestion()">← Previous</button>
+
+<button class="btn btn-outline" onclick="markReview()">
+⭐ Mark Review
+</button>
+</div>
+
+<div class="right-buttons">
+
+<button class="btn btn-primary" onclick="nextQuestion()">
+Next →
+</button>
+
+<button class="btn" style="background:#dc2626;color:white" onclick="confirmSubmit()">
+Submit Test
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUESTION PALETTE -->
+
+<div class="palette">
+
+<h3>Question Palette</h3>
+
+<div class="palette-grid" id="paletteGrid"></div>
+
+<div class="legend">
+
+<div><span class="dot green"></span> Answered</div>
+<div><span class="dot purple"></span> Marked for Review</div>
+<div><span class="dot gray"></span> Not Answered</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= RESULT SCREEN ================= -->
+
+<div id="resultScreen">
+
+<div class="result-box">
+
+<div class="result-header">
+
+<div class="result-icon">🎉</div>
+
+<h1 id="resultTitle">Test Completed!</h1>
+
+<p id="resultMessage">Here is your performance report.</p>
+
+<div class="score-circle">
+
+<strong id="scorePercent">0%</strong>
+
+<span id="scoreText">0 / 0</span>
+
+</div>
+
+</div>
+
+
+<div class="result-stats">
+
+<div class="result-stat">
+<span>Correct</span>
+<strong id="resultCorrect">0</strong>
+</div>
+
+<div class="result-stat">
+<span>Wrong</span>
+<strong id="resultWrong">0</strong>
+</div>
+
+<div class="result-stat">
+<span>Unanswered</span>
+<strong id="resultUnanswered">0</strong>
+</div>
+
+<div class="result-stat">
+<span>Percentage</span>
+<strong id="resultPercentage">0%</strong>
+</div>
+
+</div>
+
+
+<div class="result-actions">
+
+<button class="btn btn-primary" onclick="reviewAnswers()">
+Review Answers
+</button>
+
+<button class="btn btn-outline" onclick="goHome()">
+Back to Home
+</button>
+
+<button class="btn btn-primary" onclick="restartCurrentTest()">
+Try Again
+</button>
+
+</div>
+
+
+<div id="reviewContainer" style="display:none;margin-top:35px"></div>
+
+</div>
+
+</div>
+
+
+<!-- ================= SUBMIT MODAL ================= -->
+
+<div class="modal" id="submitModal">
+
+<div class="modal-box">
+
+<h2>Submit Test?</h2>
+
+<p>
+Are you sure you want to submit your test?
+Unanswered questions will be counted as unanswered.
+</p>
+
+<div class="modal-actions">
+
+<button class="btn btn-outline" onclick="closeModal()">
+Cancel
+</button>
+
+<button class="btn btn-primary" onclick="submitTest()">
+Yes, Submit
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =================================================
+   CCC QUESTION BANK DATA
+================================================= */
+
+const questionBank = [
+
+/* ================= CHAPTER 1 ================= */
+/* ================= CHAPTER 1 : COMPUTER FUNDAMENTALS ================= */
+
+{
+chapter:1,
+question:"Restarting a computer which is already started is called?",
+options:[
+"Warm booting",
+"Cold booting",
+"Login Off",
+"Shut down"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"What is the number of buttons in a standard mouse?",
+options:[
+"2",
+"3",
+"4",
+"Both A and B"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is the full form of PNG?",
+options:[
+"Portable Network Graphics",
+"Portable Net Graphics",
+"Portable Network Group",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"How many Kilobytes make 1 Megabyte?",
+options:[
+"256",
+"1024",
+"512",
+"128"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"The blinking symbol on a computer monitor is called?",
+options:[
+"Pointer",
+"Cursor",
+"Track Ball",
+"Mouse"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"The size of virtual memory depends on?",
+options:[
+"Database",
+"Address Line",
+"Disk Space",
+"All of the above"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Computer CPU has three units: Memory Unit, Control Unit and?",
+options:[
+"Arithmetic Logic Unit",
+"Input-Output Unit",
+"Microprocessor",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"What is the full form of ENIAC?",
+options:[
+"Electronic Numerical Integrator and Coder",
+"Electronic Numerical Integrator and Computer",
+"Electronic Numerical Interpreter and Computer",
+"Electronic Numerical Isolator and Computer"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is the meaning of Firmware?",
+options:[
+"Hardware Software",
+"Application Software",
+"System Software",
+"All of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which technology was used in the fifth generation of computers?",
+options:[
+"IC",
+"Transistor",
+"ULSI",
+"None of these"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"What will we do to see the properties of an object through the mouse?",
+options:[
+"Shift Clicking",
+"Dragging",
+"Dropping",
+"Right Clicking"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which structure does a USB device follow?",
+options:[
+"Halfman",
+"Hash",
+"Tree",
+"List"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Spam is related to?",
+options:[
+"Art",
+"Song",
+"Game",
+"Computer"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following is not an output device?",
+options:[
+"Plotter",
+"CRT Monitor",
+"Earphones",
+"Digital Camera"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following is not a pointing device?",
+options:[
+"Optical Pen",
+"Mouse",
+"Joy Stick",
+"Scanner"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"The number of original colours in a coloured ink bottle found in an Inkjet Printer is?",
+options:[
+"3",
+"2",
+"10",
+"30"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"What is meant by Data Processing?",
+options:[
+"Organizing Data",
+"Making Data Useful",
+"Collection of Data",
+"All of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"IBM stands for?",
+options:[
+"International Business Machine",
+"Indian Business Machine",
+"Italian Business Machine",
+"Integral Business Machine"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Who is the manufacturer of Microprocessor?",
+options:[
+"Intel",
+"Apple",
+"IBM",
+"All of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"MP3 is a?",
+options:[
+"Mouse",
+"Printer",
+"Sound Format",
+"Mobile Phone"
+],
+answer:2
+},
+/* ================= CHAPTER 1 : COMPUTER FUNDAMENTALS ================= */
+
+{
+chapter:1,
+question:"Which part of a computer cannot be touched physically?",
+options:[
+"Hardware",
+"Monitor",
+"Software",
+"CPU"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which component converts input into output by processing data?",
+options:[
+"Peripherals",
+"Memory",
+"Storage",
+"CPU"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"What is the function of a Firewall?",
+options:[
+"Damages the computer",
+"Protects the computer",
+"Operating System",
+"All of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is the abbreviation used for reusable optical storage?",
+options:[
+"CD",
+"RW",
+"ROM",
+"DVD"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which of the following is the largest unit of data storage?",
+options:[
+"PB",
+"ZB",
+"TB",
+"EB"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which type of storage device does a USB Pen Drive belong to?",
+options:[
+"Secondary Storage",
+"Primary Storage",
+"Both Primary and Secondary",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"A group of bits is called?",
+options:[
+"Nibble",
+"Record",
+"Byte",
+"Word"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which key erases the letter to the left of the cursor?",
+options:[
+"Space Bar",
+"Delete",
+"Backspace",
+"None of these"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which unit controls the movement of signals between CPU and Input/Output devices?",
+options:[
+"ALU",
+"CU",
+"Memory Unit",
+"None of these"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"A monitor is a?",
+options:[
+"Storage Device",
+"Output Device",
+"Processing Device",
+"Input Device"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"The Recycle Bin is configured automatically to store approximately what percentage of a computer's Hard Disk data?",
+options:[
+"0.1",
+"0.01",
+"0.05",
+"0.15"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following symbols are used in the hexadecimal number system?",
+options:[
+"0-7",
+"0-9, A-F",
+"0-9",
+"None of these"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is the full form of WORM?",
+options:[
+"Write On Random Memory",
+"Write Once Read Many",
+"Work On Real Memory",
+"None of these"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Who is credited with the invention of Bluetooth technology?",
+options:[
+"Martin Cooper",
+"Steve Jobs",
+"Apple",
+"Jaap Haartsen"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"A telephone number, date of birth and customer name are examples of?",
+options:[
+"A File",
+"A Record",
+"A Database",
+"Data"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which technology was used in the third generation of computers?",
+options:[
+"Vacuum Tube",
+"Transistor",
+"Integrated Circuits",
+"Microprocessors"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"The quality of a printer depends on how many ______ are used to print an image?",
+options:[
+"Pixel",
+"DPI",
+"Paper",
+"PPM"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which of the following is a permanent memory?",
+options:[
+"ROM",
+"RAM",
+"CD-ROM",
+"CPU"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is not an example of hardware?",
+options:[
+"Mouse",
+"Operating System",
+"Printer",
+"Monitor"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which of the following are the main components of a CPU?",
+options:[
+"CU",
+"ALU",
+"Memory",
+"All of the Above"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"What is the full form of UNIVAC?",
+options:[
+"Universal Automatic Computer",
+"Universal Automatic Serial Computer",
+"Universal Automatics Company",
+"None of these"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is Hierarchy?",
+options:[
+"Storage Device",
+"A Network",
+"Represents the computer's memory in order",
+"None of these"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"CPU is also known as?",
+options:[
+"Execute",
+"Microprocessor",
+"Memory",
+"Mini Computer"
+],
+answer:1
+},
+/* ================= CHAPTER 1 : COMPUTER FUNDAMENTALS ================= */
+
+{
+chapter:1,
+question:"What does the letter R stand for in MICR?",
+options:[
+"Reader",
+"Recognize",
+"Recognition",
+"Reading"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"How many keys are found on a normal keyboard?",
+options:[
+"111",
+"123",
+"101",
+"134"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which type of signals are used in a Hybrid Computer?",
+options:[
+"Analog Signals",
+"Digital Signals",
+"Both Analog and Digital Signals",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A computer works on which basic cycle?",
+options:[
+"Input",
+"Output",
+"Understanding",
+"Controlling"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"The base of the Decimal Number System is?",
+options:[
+"10",
+"8",
+"3",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following storage devices cannot be easily carried from one place to another?",
+options:[
+"Pen Drive",
+"CD",
+"Hard Disk",
+"DVD"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which of the following is not related to the Internet?",
+options:[
+"Links",
+"Browser",
+"Printer",
+"Search Engine"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which of the following devices is not a data storage device?",
+options:[
+"Monitor",
+"Pen Drive",
+"RAM",
+"Hard Disk"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which language translator converts and executes one statement at a time?",
+options:[
+"Converter",
+"Compiler",
+"Assembler",
+"Interpreter"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following is a Daisy Wheel Printer?",
+options:[
+"Matrix Printer",
+"Impact Printer",
+"Laser Printer",
+"Manual Printer"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"COBOL is an example of which type of language?",
+options:[
+"High Level Language",
+"Assembly Language",
+"Second Generation Language",
+"Low Level Language"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"The quality of a printer depends on how many ______ are used to print an image?",
+options:[
+"DPI",
+"Pixel",
+"Paper",
+"Color"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following are input devices?",
+options:[
+"Scanner",
+"Mouse",
+"Both A and B",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which software is used for word processing?",
+options:[
+"PageMaker",
+"MS Word",
+"Writer",
+"All of the above"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"How many Function Keys are there on a standard computer keyboard?",
+options:[
+"15",
+"5",
+"10",
+"12"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following does not have storage capacity?",
+options:[
+"Hard Disk",
+"CD",
+"Floppy Disk",
+"Monitor"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following is not a storage device?",
+options:[
+"Monitor",
+"Floppy Disk",
+"Hard Disk",
+"CD"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which language does a computer understand directly?",
+options:[
+"American Language",
+"Machine Language",
+"Secret Language",
+"Software Language"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is the full form of VGA?",
+options:[
+"Video Graphics Adapter",
+"Visual Graphics Array",
+"Video Graphics Array",
+"Volatile Graphics Array"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is not a pointing device?",
+options:[
+"Keyboard",
+"Mouse",
+"Track Ball",
+"Light Pen"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Mouse is a?",
+options:[
+"Pointing Device",
+"Input Device",
+"CPU",
+"Output Device"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"What is the abbreviation for reusable optical storage?",
+options:[
+"CD",
+"DVD",
+"ROM",
+"RW"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following computers is the smallest in size?",
+options:[
+"Laptop",
+"Notebook",
+"Desktop",
+"Palmtop"
+],
+answer:3
+},
+/* ================= CHAPTER 1 : COMPUTER FUNDAMENTALS ================= */
+
+{
+chapter:1,
+question:"What is the output displayed by a computer monitor called?",
+options:[
+"Soft Copy",
+"Hard Copy",
+"Color Copy",
+"Dry Copy"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is an example of a second generation computer language?",
+options:[
+"Machine Language",
+"JAVA Language",
+"Assembly Language",
+"PROLOG"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which of the following is an example of internal memory?",
+options:[
+"CD",
+"RAM",
+"Pen Drive",
+"Hard Disk"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"When the power of a computer is switched off, the data stored in RAM is?",
+options:[
+"Erased",
+"Inverted",
+"Deleted",
+"Stored"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"What is the full form of LCD?",
+options:[
+"Liquid Crystal Display",
+"Liquid Copper Display",
+"Light Crystal Display",
+"Layout Core Display"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Modern computers are very reliable but they are not?",
+options:[
+"Sure",
+"Fast",
+"Powerful",
+"Perfect"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"The process of starting a computer is called?",
+options:[
+"Warm Booting",
+"Bootable",
+"Cold Booting",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which of the following sequence of storage units is correct from largest to smallest?",
+options:[
+"TB > GB > KB > MB",
+"TB > GB > MB > KB",
+"GB > MB > TB > KB",
+"KB > MB > GB > TB"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"What is the extension of a file created in Notepad?",
+options:[
+".notepad",
+".doc",
+".txt",
+".rtf"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Laser is a type of?",
+options:[
+"Disk",
+"Bus",
+"Tape",
+"Printer"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"What is used in a Digital Camera?",
+options:[
+"LED",
+"Photo Diode",
+"Optical Film",
+"Printer"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"A printer provides a hard copy.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of these is not an object-oriented programming language?",
+options:[
+"C++",
+"Ruby",
+"VB.NET",
+"C"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"In the context of computers, what is the meaning of software?",
+options:[
+"Floppy Disk",
+"Computer Hardware",
+"Computer Program",
+"Computer Brain"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"One ______ is approximately one billion bytes.",
+options:[
+"Gigabyte",
+"Bit",
+"Kilobyte",
+"Megabyte"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following are examples of storage devices?",
+options:[
+"All of the above",
+"Floppy Disk / Hard Disk",
+"CD-ROM",
+"Tape Devices"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Pick out one hardware device used for computer graphics.",
+options:[
+"None of the above",
+"Scanner",
+"Keyboard",
+"Monitor"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which technology is used in a CD-ROM Drive?",
+options:[
+"Mechanical",
+"Optical",
+"Fiber Optical",
+"Electromechanical"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"The most important advantage of a video disk is?",
+options:[
+"Cost Effectiveness",
+"Durability",
+"Potential Capacity",
+"Compactness"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A disk drive has four sensors.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which devices are often used to ensure that data has been accurately input into a computer?",
+options:[
+"Input Controls",
+"Digitizers",
+"Light Pens",
+"Keyboards"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"A Pen Drive does not work as an input device.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which printer used with computers uses dry ink powder (toner)?",
+options:[
+"Laser Printer",
+"Daisy Wheel Printer",
+"Line Printer",
+"Thermal Printer"
+],
+answer:0
+},
+/* ================= CHAPTER 1 : COMPUTER FUNDAMENTALS ================= */
+
+{
+chapter:1,
+question:"A hard copy would be prepared on a?",
+options:[
+"Typewriter Terminal",
+"Line Printer",
+"Dot Matrix Printer",
+"All of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which of the following is not an input device?",
+options:[
+"Printer",
+"Scanner",
+"Keyboard",
+"Mouse"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"A Microfilm Reader is a?",
+options:[
+"MICR Device",
+"None of the above",
+"COM Device",
+"OCR Device"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A flat display device composed of tiny neon bulbs is called?",
+options:[
+"LCD",
+"Light Pen",
+"Joystick",
+"Plasma Panel Display"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Magnetic tapes are good storage media for?",
+options:[
+"Storing original but high volume data",
+"Storing original but low volume data",
+"Backup and high volume data",
+"Backup and low volume data"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A secondary storage device works as both an input and output device.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following does not represent an I/O device?",
+options:[
+"Joystick",
+"Plotter",
+"Speaker",
+"ALU"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Data going into a computer is called?",
+options:[
+"Input",
+"Algorithm",
+"Output",
+"Calculations"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"The primary output device for a computer is?",
+options:[
+"Printer",
+"Video Monitor",
+"Keyboard",
+"Mouse"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"A wireless keyboard does not have a physical connection to the computer.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"A mouse has only two buttons.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"In which of the following input/output devices can data enter or leave a computer system?",
+options:[
+"Plotter",
+"Keyboard",
+"Printer",
+"Terminal"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"A higher screen resolution provides more pixels to display.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Touch panels are?",
+options:[
+"Electrical",
+"Acoustic",
+"Optical",
+"All of the above"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which device produces text or graphics stored in electronic form on paper?",
+options:[
+"Printer",
+"Keyboard",
+"Speaker",
+"Scanner"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is not a valid screen resolution?",
+options:[
+"1064 × 768",
+"300 × 400",
+"1280 × 1024",
+"800 × 600"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Small letters on a keyboard are called?",
+options:[
+"Babies",
+"Icons",
+"Lower Case Letters",
+"Mice"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A modern electronic computer is a machine mainly meant for?",
+options:[
+"Electronic Data Processing",
+"Input, Storage, Manipulation and Outputting of Data",
+"Doing Quick Mathematical Calculations",
+"Performing Repetitive Tasks Accurately"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"An Inkjet Printer is a type of impact printer.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Secondary storage is temporary memory.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"A mouse can be configured for both left-hand and right-hand use.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is considered a direct entry input device?",
+options:[
+"Mouse and Digitizer",
+"Optical Scanner",
+"Light Pen",
+"All of the above"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Which of the following would provide the quickest access?",
+options:[
+"RAM",
+"Hard Disk",
+"Pen Drive",
+"All of the above"
+],
+answer:0
+},
+/* ================= CHAPTER 1 : COMPUTER FUNDAMENTALS ================= */
+
+{
+chapter:1,
+question:"Which storage medium provides direct access?",
+options:[
+"Direct access from a Hard Disk",
+"Direct access from a Floppy Disk",
+"Direct access from a Cassette Tape",
+"Direct access from a Magnetic Tape"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"A Mouse can perform which of the following operations?",
+options:[
+"Copy, Paste and Delete",
+"Point, Click and Drag & Drop",
+"View, Format and Insert",
+"Scroll, Delete and Edit"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"In a VGA monitor, VGA is the abbreviation of?",
+options:[
+"Virtual Game Array",
+"Very Good Adapter",
+"Video Graphics Array",
+"Video Games Array"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A Dot Matrix Printer needs no electricity to print.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"A Mouse is a ______ device.",
+options:[
+"Output Device",
+"None of the above",
+"Input Device",
+"Input-Output Device"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"CD-ROM is a?",
+options:[
+"Magnetic Memory",
+"Memory Register",
+"Semiconductor Memory",
+"None of the above"
+],
+answer:3
+},
+
+{
+chapter:1,
+question:"Keyboard is an output device of a computer.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"An Impact Printer?",
+options:[
+"Is slower than a Non-Impact Printer",
+"Is faster than a Non-Impact Printer",
+"Can make carbon copies",
+"Is useful for bulk printing"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"A VGA monitor is also called a Monochrome Monitor.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Keyboard is one of the most common input devices.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"A Touch Screen Monitor uses touching of the screen as an input method.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"When a key is pressed on a keyboard, what happens?",
+options:[
+"An electric contact is formed between the row and column",
+"A command is executed",
+"A file is deleted",
+"A shutdown instruction is executed"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"We can select multiple lines with the help of a keyboard.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"CD-ROM can be used for backup purposes.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"The most important advantage of a Video Disk is?",
+options:[
+"Compactness",
+"Potential Capacity",
+"Cost Effectiveness",
+"Durability"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"CD-ROM is an internal storage device.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"The size of a monitor is measured diagonally.",
+options:[
+"False",
+"True",
+"Both True and False",
+"None of the above"
+],
+answer:1
+},
+
+
+
+{
+chapter:1,
+question:"What is the full form of CPU?",
+options:[
+"Central Processing Unit",
+"Computer Processing Unit",
+"Central Program Unit",
+"Control Processing Unit"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is an input device?",
+options:[
+"Monitor",
+"Printer",
+"Keyboard",
+"Speaker"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which device is used to display output?",
+options:[
+"Keyboard",
+"Mouse",
+"Monitor",
+"Scanner"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"Which of the following is NOT a computer hardware?",
+options:[
+"Keyboard",
+"Mouse",
+"Windows",
+"Monitor"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"The brain of the computer is called?",
+options:[
+"Monitor",
+"CPU",
+"RAM",
+"Keyboard"
+],
+answer:1
+},
+
+{
+chapter:1,
+question:"Which memory is temporary memory?",
+options:[
+"ROM",
+"Hard Disk",
+"RAM",
+"DVD"
+],
+answer:2
+},
+
+{
+chapter:1,
+question:"What is the full form of RAM?",
+options:[
+"Random Access Memory",
+"Read Access Memory",
+"Rapid Access Memory",
+"Run Access Memory"
+],
+answer:0
+},
+
+{
+chapter:1,
+question:"Which of the following is a storage device?",
+options:[
+"Hard Disk",
+"Monitor",
+"Keyboard",
+"Speaker"
+],
+answer:0
+},
+
+/* ================= CHAPTER 2 ================= */
+/* ================= CHAPTER 2 : OPERATING SYSTEM ================= */
+
+{
+chapter:2,
+question:"What is the full form of DSM?",
+options:[
+"Demoralized System Memory",
+"Distributed Shared Memory",
+"Direct System Module",
+"Direct System Memory"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"What is the program that controls the entire operation of a computer?",
+options:[
+"Working System",
+"Operating System",
+"Peripheral System",
+"Controlling System"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"What happens when Ctrl + Shift + Arrow Key is pressed in Windows?",
+options:[
+"Something is pasted",
+"Something gets deleted",
+"A block of text is highlighted",
+"None of the above"
+],
+answer:2
+},
+/* ================= CHAPTER 2 : OPERATING SYSTEM ================= */
+
+{
+chapter:2,
+question:"Windows is an Operating System.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"What is the full form of ISO?",
+options:[
+"International Standard Organization",
+"International Student Organization",
+"Integrated Service Organization",
+"Internal Student Organization"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Where do the time and date appear on the Windows desktop?",
+options:[
+"My Computer",
+"Title Bar",
+"Status Bar",
+"Task Bar"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which of the following statements is incorrect about Unix?",
+options:[
+"Unix is a Multitasking Operating System",
+"Unix is an Open-Source Software",
+"Unix is a Multi-User Operating System",
+"Unix is a Multiprogramming Operating System"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to open the Start Menu in Windows?",
+options:[
+"Ctrl + Esc",
+"Windows Key",
+"Both A and B",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Which of the following is a freeware operating system?",
+options:[
+"MS Office",
+"LibreOffice",
+"Unix",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"What is Kernel?",
+options:[
+"Graphics Interface of Operating System",
+"A Chip that has Storage",
+"An important core part of Linux and Unix",
+"All of the above"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"If the time and date of a computer are wrong, from where can you reset them?",
+options:[
+"Write File",
+"Control Panel",
+"Write",
+"Calendar"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"For all parts of a computer to function properly and other programs to run, it is necessary to have a?",
+options:[
+"Utility Software",
+"Compiler",
+"Interpreter",
+"Operating System"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Linux is?",
+options:[
+"Multitasking",
+"Multi-User",
+"Both A and B",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to open the Shut Down option in Windows?",
+options:[
+"Ctrl + F4",
+"Ctrl + Shift + F4",
+"Win + F4",
+"Alt + F4"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to open the Run Command dialog box in Windows?",
+options:[
+"Ctrl + R",
+"Windows + R",
+"Shift + R",
+"Windows + Shift + R"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"When was the first Operating System developed?",
+options:[
+"1948",
+"1949",
+"1951",
+"1950"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to go to the previous option in a Windows dialog box?",
+options:[
+"Shift + Tab",
+"Ctrl + Tab",
+"Ctrl + Shift + Tab",
+"Alt + Tab"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to minimize all windows in Windows OS?",
+options:[
+"Windows + D",
+"Windows Key",
+"Windows + Break",
+"Windows + M"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which of the following supports 64-bit architecture?",
+options:[
+"Windows 2000",
+"Windows XP",
+"Windows 98",
+"Windows 95"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which of the following is not an Operating System?",
+options:[
+"Windows",
+"Google",
+"Linux",
+"Microsoft"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"The image shown on the Windows desktop background is called?",
+options:[
+"Main Image",
+"Wallpaper",
+"Desktop Image",
+"Windows Image"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Who owns Windows 10 Software?",
+options:[
+"IBM",
+"Google",
+"Linux",
+"Microsoft"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"The category of Operating System used on a PDA computer is?",
+options:[
+"Real-Time",
+"Single User, Multitasking",
+"Multiuser, Multitasking",
+"Single User, Single Task"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"What does a folder mean?",
+options:[
+"Keeping files organized on a disk",
+"Determines if the computer can function properly",
+"Can make files into a table",
+"Can see the names of files"
+],
+answer:0
+},
+/* ================= CHAPTER 2 : OPERATING SYSTEM ================= */
+
+{
+chapter:2,
+question:"What is the latest Windows Operating System among the following?",
+options:[
+"Windows XP",
+"Windows 7",
+"Windows 8.1",
+"Windows 10"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"What does it mean to debug a system?",
+options:[
+"Finding and installing the correct system",
+"Detecting and correcting errors in the system",
+"Finding the right system",
+"Installing the Operating System"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which of the following does not fall under the category of Operating Systems?",
+options:[
+"Apache",
+"Android",
+"Linux",
+"Windows"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which Operating System is embedded in a device and resides in ROM?",
+options:[
+"Embedded Operating System",
+"Real-Time Operating System",
+"Batch Operating System",
+"Microprocessor Operating System"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which of the following organizations is popular in the field of computer and software?",
+options:[
+"Right Man",
+"Henley",
+"Louis Button",
+"Microsoft"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"The shortcut key to lock Ubuntu Operating System is Ctrl + Alt + L.",
+options:[
+"True",
+"False",
+"Both A and B",
+"All of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"What do you mean by an Operating System?",
+options:[
+"A collection of Input and Output devices",
+"A collection of daily software",
+"A collection of hardware components",
+"A collection of system software that manages computer resources"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which version of Windows does not have a traditional Start Button?",
+options:[
+"Windows 7",
+"Windows 8",
+"Windows XP",
+"Windows 10"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"What is the use of Ctrl + F in Windows OS?",
+options:[
+"To search the computer",
+"To open My Computer",
+"To search for a file or folder",
+"To restore minimized windows"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Linux is?",
+options:[
+"Open Source",
+"Microsoft",
+"Windows",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"The Operating System does not boot automatically when the system is?",
+options:[
+"Reset",
+"Power On",
+"Restart",
+"Shutdown"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which command is used to print a file in Unix?",
+options:[
+"LPR",
+"LP",
+"Install",
+"PT"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"What cannot be done with the Windows Control Panel?",
+options:[
+"Run an application",
+"Printer Configuration",
+"Install applications",
+"Adding fonts"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"What is a flashing or blinking symbol on the computer screen called?",
+options:[
+"An Icon",
+"A Cursor",
+"A Pixel",
+"None of these"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which Operating System is based on GUI?",
+options:[
+"MS-DOS",
+"MS Windows",
+"UNIX",
+"All of these"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which browser was introduced with Windows 10?",
+options:[
+"Internet Explorer",
+"Microsoft Edge",
+"Mozilla Firefox",
+"Chrome"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which function key is used to access Advanced Boot Options in Windows?",
+options:[
+"F8",
+"F10",
+"F5",
+"F9"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to move from one program to another?",
+options:[
+"Ctrl + Tab",
+"Ctrl + Shift",
+"Alt + Tab",
+"Alt + Shift"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"How can you start a program using its desktop icon?",
+options:[
+"Double-clicking on it",
+"Selecting it and pressing the Enter key",
+"Single-clicking on it",
+"Both A and B"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to shut down or close Windows?",
+options:[
+"Ctrl + F4",
+"Alt + F4",
+"Win + F4",
+"Ctrl + Shift + F4"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Why is the Start Button used in Windows OS?",
+options:[
+"To access programs, settings and system features",
+"To print documents",
+"To restart the monitor",
+"To open only My Computer"
+],
+answer:0
+},
+/* ================= CHAPTER 2 : OPERATING SYSTEM ================= */
+
+{
+chapter:2,
+question:"BIOS is used by whom?",
+options:[
+"Compiler",
+"Interpreter",
+"Operating System",
+"Application Software"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to move to the next tab in a Windows dialog box?",
+options:[
+"Alt + Tab",
+"Ctrl + Tab",
+"Shift + Tab",
+"Ctrl + Shift + Tab"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Ubuntu is one of the best Linux distributions for programmers.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Ubuntu was launched by Canonical Limited.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which operating system does not support more than one program at a time?",
+options:[
+"Linux",
+"Windows",
+"DOS",
+"Unix"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"What is required to protect a computer from viruses?",
+options:[
+"Keep removable disks physically safe",
+"Install antivirus software and run it",
+"Scan removable disks before using them",
+"All of the above"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"Linux is an open-source software.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Both Linux and Unix are open-source operating systems.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Computer software is generally classified into System Software and Application Software.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Small pictures representing software or programs on the desktop are called?",
+options:[
+"Icon",
+"Map",
+"Tool",
+"Logo"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"A computer can have more than one operating system installed.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which one of the following is an application program?",
+options:[
+"WordPad",
+"Accessory",
+"Paint Brush",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"What is the full form of IDL?",
+options:[
+"Interface Direct Language",
+"Interface Definition Language",
+"Interface Data Library",
+"Interface Device Language"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to show or hide the Start Menu in Windows?",
+options:[
+"Windows + M",
+"Windows Key",
+"Windows + Break",
+"Windows + D"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"After deleting a file, where is the file normally stored?",
+options:[
+"In Hard Disk",
+"In the Taskbar",
+"In Recycle Bin",
+"Nowhere"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"What does memory mean?",
+options:[
+"A device that performs a sequence of operations specified by instructions",
+"A sequence of instructions",
+"The device or area where information is stored",
+"None of the above"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Which of the following applications is not available in Windows Accessories?",
+options:[
+"Internet Explorer",
+"Notepad",
+"Paint",
+"WordPad"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which of the following does not fall under the category of Application Software?",
+options:[
+"MS Word XP",
+"Windows NT",
+"PageMaker",
+"Photoshop"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"What is the name of the bar that appears at the top of a Windows application?",
+options:[
+"Menu Bar",
+"Title Bar",
+"Tool Bar",
+"Status Bar"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Does Ubuntu require antivirus software?",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"The full form of GUI is Graphical User Interface.",
+options:[
+"True",
+"False",
+"Both A and B",
+"None of the above"
+],
+answer:0
+},
+/* ================= CHAPTER 2 : OPERATING SYSTEM ================= */
+
+{
+chapter:2,
+question:"Why is the Windows + F1 shortcut key used in Windows Operating System?",
+options:[
+"To lock the keypad",
+"To open Utility Manager",
+"To display Windows Help",
+"To open the Run dialog box"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Who is known as the father of Linux?",
+options:[
+"Linus Torvalds",
+"Andrew Tenenbaum",
+"Richard Stallman",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"How many control buttons are available on a standard Windows title bar?",
+options:[
+"4",
+"5",
+"3",
+"6"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"What is the full form of FAT?",
+options:[
+"Font Attribute Table",
+"Format Allocation Table",
+"File Attribute Table",
+"File Allocation Table"
+],
+answer:3
+},
+
+{
+chapter:2,
+question:"What is meant by the Rmdir command?",
+options:[
+"It only removes an empty directory",
+"It removes all types of directories",
+"It removes only a directory which is not empty",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"When was MS Windows Operating System first proposed?",
+options:[
+"1994",
+"1995",
+"1990",
+"1992"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Windows is an example of an Operating System.",
+options:[
+"True",
+"False",
+"Both True and False",
+"None of these"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Why is memory management necessary?",
+options:[
+"It is important for the Operating System",
+"It controls the processor",
+"It is replaced with virtual memory on modern systems",
+"It is not used in multiprogramming systems"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which Windows program helps in managing files and folders?",
+options:[
+"Accessories",
+"Control Panel",
+"Explorer",
+"Office"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Which of the following text editors is part of the Windows Operating System?",
+options:[
+"WordPad",
+"Microsoft Word",
+"Notepad",
+"Adobe Photoshop"
+],
+answer:2
+},
+
+{
+chapter:2,
+question:"Where does the list of recently used application files appear in Windows?",
+options:[
+"Documents Menu",
+"Settings Menu",
+"Run Dialog Box",
+"Programs Menu"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which shortcut key is used to cut selected text or an item in Windows?",
+options:[
+"Ctrl + D",
+"Ctrl + X",
+"Ctrl + V",
+"Ctrl + C"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which mode is a compromise between Shut Down and Sleep mode, remembers the current desktop state and consumes very little power?",
+options:[
+"Hibernate",
+"Shut Down",
+"Restart",
+"Sleep"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Which shortcut is used to permanently delete a selected item without sending it to the Recycle Bin?",
+options:[
+"Shift + Delete",
+"Press Ctrl while dragging the item",
+"Press Ctrl + Shift while dragging the item",
+"None of these"
+],
+answer:0
+},
+
+
+
+
+
+
+{
+chapter:2,
+question:"What is an Operating System?",
+options:[
+"Application Software",
+"System Software",
+"Programming Language",
+"Hardware"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which of the following is an Operating System?",
+options:[
+"Windows",
+"MS Word",
+"Excel",
+"PowerPoint"
+],
+answer:0
+},
+
+{
+chapter:2,
+question:"Linux is a?",
+options:[
+"Web Browser",
+"Operating System",
+"Spreadsheet",
+"Database"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which key combination is used to copy selected text?",
+options:[
+"Ctrl + X",
+"Ctrl + C",
+"Ctrl + V",
+"Ctrl + P"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Which key combination is used to paste?",
+options:[
+"Ctrl + P",
+"Ctrl + V",
+"Ctrl + S",
+"Ctrl + A"
+],
+answer:1
+},
+
+{
+chapter:2,
+question:"Recycle Bin is used for?",
+options:[
+"Deleting permanently",
+"Temporary storage of deleted files",
+"Opening files",
+"Installing software"
+],
+answer:1
+},
+
+/* ================= CHAPTER 3 ================= */
+
+{
+chapter:3,
+question:"MS Word is mainly used for?",
+options:[
+"Creating Documents",
+"Playing Games",
+"Browsing Internet",
+"Creating Videos"
+],
+answer:0
+},
+
+{
+chapter:3,
+question:"Which shortcut is used to save a document?",
+options:[
+"Ctrl + S",
+"Ctrl + P",
+"Ctrl + C",
+"Ctrl + Z"
+],
+answer:0
+},
+
+{
+chapter:3,
+question:"Which shortcut makes text bold?",
+options:[
+"Ctrl + B",
+"Ctrl + I",
+"Ctrl + U",
+"Ctrl + L"
+],
+answer:0
+},
+
+{
+chapter:3,
+question:"Which shortcut makes text italic?",
+options:[
+"Ctrl + B",
+"Ctrl + I",
+"Ctrl + U",
+"Ctrl + E"
+],
+answer:1
+},
+
+{
+chapter:3,
+question:"Which shortcut is used for underline?",
+options:[
+"Ctrl + U",
+"Ctrl + B",
+"Ctrl + P",
+"Ctrl + R"
+],
+answer:0
+},
+
+{
+chapter:3,
+question:"Which option is used to print a document?",
+options:[
+"Ctrl + S",
+"Ctrl + P",
+"Ctrl + N",
+"Ctrl + X"
+],
+answer:1
+},
+
+/* ================= CHAPTER 4 ================= */
+
+{
+chapter:4,
+question:"MS Excel is mainly used for?",
+options:[
+"Spreadsheet",
+"Presentation",
+"Drawing",
+"Browsing"
+],
+answer:0
+},
+
+{
+chapter:4,
+question:"A cell in Excel is identified by?",
+options:[
+"Row and Column",
+"Only Row",
+"Only Column",
+"File Name"
+],
+answer:0
+},
+
+{
+chapter:4,
+question:"Which symbol is used to start a formula in Excel?",
+options:[
+"#",
+"=",
+"&",
+"$"
+],
+answer:1
+},
+
+{
+chapter:4,
+question:"Which function is used to add numbers in Excel?",
+options:[
+"AVERAGE",
+"SUM",
+"COUNT",
+"MAX"
+],
+answer:1
+},
+
+{
+chapter:4,
+question:"Which function gives average value?",
+options:[
+"SUM",
+"COUNT",
+"AVERAGE",
+"MIN"
+],
+answer:2
+},
+
+{
+chapter:4,
+question:"Rows in Excel are represented by?",
+options:[
+"Letters",
+"Numbers",
+"Symbols",
+"Colors"
+],
+answer:1
+},
+
+/* ================= CHAPTER 5 ================= */
+
+{
+chapter:5,
+question:"MS PowerPoint is used for?",
+options:[
+"Spreadsheet",
+"Presentation",
+"Typing",
+"Programming"
+],
+answer:1
+},
+
+{
+chapter:5,
+question:"A presentation is made up of?",
+options:[
+"Pages",
+"Slides",
+"Cells",
+"Sheets"
+],
+answer:1
+},
+
+{
+chapter:5,
+question:"Which shortcut starts slideshow from beginning?",
+options:[
+"F5",
+"F2",
+"F1",
+"F12"
+],
+answer:0
+},
+
+{
+chapter:5,
+question:"Which view is used to arrange slides?",
+options:[
+"Slide Sorter",
+"Normal View",
+"Reading View",
+"Outline View"
+],
+answer:0
+},
+
+/* ================= CHAPTER 6 ================= */
+
+{
+chapter:6,
+question:"What is the full form of WWW?",
+options:[
+"World Wide Web",
+"World Web Wide",
+"Wide World Web",
+"Web World Wide"
+],
+answer:0
+},
+
+{
+chapter:6,
+question:"Which of the following is a web browser?",
+options:[
+"Google Chrome",
+"MS Word",
+"Excel",
+"Windows"
+],
+answer:0
+},
+
+{
+chapter:6,
+question:"Google is mainly a?",
+options:[
+"Search Engine",
+"Operating System",
+"Antivirus",
+"Spreadsheet"
+],
+answer:0
+},
+
+{
+chapter:6,
+question:"What is the full form of URL?",
+options:[
+"Uniform Resource Locator",
+"Universal Resource Link",
+"Uniform Reference Link",
+"User Resource Locator"
+],
+answer:0
+},
+
+{
+chapter:6,
+question:"Which protocol is commonly used for secure websites?",
+options:[
+"HTTP",
+"HTTPS",
+"FTP",
+"SMTP"
+],
+answer:1
+},
+
+/* ================= CHAPTER 7 ================= */
+
+{
+chapter:7,
+question:"What is the full form of E-mail?",
+options:[
+"Electronic Mail",
+"Easy Mail",
+"Electric Mail",
+"Express Mail"
+],
+answer:0
+},
+
+{
+chapter:7,
+question:"Which symbol is compulsory in an email address?",
+options:[
+"#",
+"@",
+"&",
+"$"
+],
+answer:1
+},
+
+{
+chapter:7,
+question:"BCC stands for?",
+options:[
+"Blind Carbon Copy",
+"Basic Carbon Copy",
+"Business Copy Control",
+"Backup Carbon Copy"
+],
+answer:0
+},
+
+{
+chapter:7,
+question:"Which is used to send a copy of an email to another person?",
+options:[
+"CC",
+"CPU",
+"URL",
+"WWW"
+],
+answer:0
+},
+
+/* ================= CHAPTER 8 ================= */
+
+{
+chapter:8,
+question:"What is the full form of UPI?",
+options:[
+"Unified Payments Interface",
+"Universal Payment Interface",
+"United Payment India",
+"User Payment Interface"
+],
+answer:0
+},
+
+{
+chapter:8,
+question:"Which of the following is a digital payment method?",
+options:[
+"UPI",
+"Cheque only",
+"Paper Bill",
+"Notebook"
+],
+answer:0
+},
+
+{
+chapter:8,
+question:"ATM stands for?",
+options:[
+"Automated Teller Machine",
+"Automatic Transfer Machine",
+"Any Time Money",
+"Auto Transaction Machine"
+],
+answer:0
+},
+
+{
+chapter:8,
+question:"Which information should never be shared with anyone?",
+options:[
+"Name",
+"PIN",
+"City",
+"Age"
+],
+answer:1
+},
+
+{
+chapter:8,
+question:"OTP stands for?",
+options:[
+"One Time Password",
+"One Type Password",
+"Online Transfer Password",
+"Only Time Password"
+],
+answer:0
+},
+
+/* ================= CHAPTER 9 ================= */
+
+{
+chapter:9,
+question:"Cyber Security means?",
+options:[
+"Protection of digital systems",
+"Computer Cleaning",
+"Buying Computers",
+"Typing Practice"
+],
+answer:0
+},
+
+{
+chapter:9,
+question:"Which is a strong password practice?",
+options:[
+"123456",
+"Your Name",
+"Mix of letters numbers and symbols",
+"Only date of birth"
+],
+answer:2
+},
+
+{
+chapter:9,
+question:"Phishing is related to?",
+options:[
+"Online Fraud",
+"Fishing Game",
+"Computer Hardware",
+"Printing"
+],
+answer:0
+},
+
+{
+chapter:9,
+question:"Antivirus software protects against?",
+options:[
+"Viruses and Malware",
+"Typing Errors",
+"Power Cut",
+"Slow Internet"
+],
+answer:0
+},
+
+{
+chapter:9,
+question:"Malware means?",
+options:[
+"Malicious Software",
+"Mail Software",
+"Main Hardware",
+"Manual Ware"
+],
+answer:0
+},
+
+/* ================= CHAPTER 10 ================= */
+
+{
+chapter:10,
+question:"Cloud Computing means?",
+options:[
+"Using Internet based computing services",
+"Weather Forecast",
+"Computer Hardware",
+"Printing from Cloud"
+],
+answer:0
+},
+
+{
+chapter:10,
+question:"Which is an example of cloud storage?",
+options:[
+"Google Drive",
+"Keyboard",
+"Mouse",
+"Printer"
+],
+answer:0
+},
+
+{
+chapter:10,
+question:"Artificial Intelligence is commonly known as?",
+options:[
+"AI",
+"AL",
+"IA",
+"IT"
+],
+answer:0
+},
+
+{
+chapter:10,
+question:"IoT stands for?",
+options:[
+"Internet of Things",
+"Input of Technology",
+"Internet of Technology",
+"Information of Things"
+],
+answer:0
+}
+
+];
+
+
+/* =================================================
+   CHAPTER DETAILS
+================================================= */
+
+const chapters = [
+
+{
+id:1,
+name:"Introduction to Computer",
+description:"Computer fundamentals, hardware, software and memory."
+},
+
+{
+id:2,
+name:"Operating System",
+description:"Windows, files, folders and basic operating system concepts."
+},
+
+{
+id:3,
+name:"Word Processing",
+description:"MS Word / LibreOffice Writer basics and shortcuts."
+},
+
+{
+id:4,
+name:"Spreadsheet",
+description:"MS Excel / LibreOffice Calc formulas and functions."
+},
+
+{
+id:5,
+name:"Presentation",
+description:"PowerPoint and presentation fundamentals."
+},
+
+{
+id:6,
+name:"Internet and WWW",
+description:"Internet, browsers, search engines and websites."
+},
+
+{
+id:7,
+name:"E-Mail & Social Networking",
+description:"Email services, CC, BCC and communication tools."
+},
+
+{
+id:8,
+name:"Digital Financial Services",
+description:"UPI, ATM, OTP and online payment systems."
+},
+
+{
+id:9,
+name:"Cyber Security",
+description:"Cyber safety, phishing, malware and passwords."
+},
+
+{
+id:10,
+name:"Future Skills & Digital Services",
+description:"Cloud computing, AI and modern technologies."
+}
+
+];
+
+
+/* =================================================
+   APPLICATION VARIABLES
+================================================= */
+
+let currentQuestions = [];
+let currentIndex = 0;
+let userAnswers = [];
+let reviewQuestions = [];
+let timerInterval = null;
+let remainingSeconds = 0;
+let currentTestConfig = null;
+
+
+/* =================================================
+   LOCAL STORAGE
+================================================= */
+
+function getStats(){
+
+    return JSON.parse(localStorage.getItem("cccStats")) || {
+        attempted:0,
+        correct:0,
+        tests:0,
+        scores:[],
+        wrongQuestions:[]
+    };
+
+}
+
+
+function saveStats(stats){
+
+    localStorage.setItem("cccStats",JSON.stringify(stats));
+
+}
+
+
+/* =================================================
+   DASHBOARD
+================================================= */
+
+function updateDashboard(){
+
+    const stats = getStats();
+
+    document.getElementById("attemptedCount").textContent =
+        stats.attempted;
+
+    document.getElementById("correctCount").textContent =
+        stats.correct;
+
+    document.getElementById("totalTests").textContent =
+        stats.tests;
+
+    let average = 0;
+
+    if(stats.scores.length){
+
+        average =
+        stats.scores.reduce((a,b)=>a+b,0)
+        /
+        stats.scores.length;
+
+    }
+
+    document.getElementById("averageScore").textContent =
+        Math.round(average)+"%";
+
+    let best =
+        stats.scores.length
+        ?
+        Math.max(...stats.scores)
+        :
+        0;
+
+    document.getElementById("bestScore").textContent =
+        best+"%";
+
+    document.getElementById("totalQuestionCount").textContent =
+        questionBank.length;
+
+}
+
+
+/* =================================================
+   CHAPTER CARDS
+================================================= */
+
+function renderChapters(){
+
+    const grid =
+        document.getElementById("chapterGrid");
+
+    grid.innerHTML = "";
+
+    chapters.forEach((chapter,index)=>{
+
+        const count =
+        questionBank.filter(
+            q=>q.chapter===chapter.id
+        ).length;
+
+        grid.innerHTML += `
+
+        <div class="chapter-card">
+
+            <div class="chapter-number">
+                ${String(index+1).padStart(2,"0")}
+            </div>
+
+            <h3>${chapter.name}</h3>
+
+            <p>${chapter.description}</p>
+
+            <div class="chapter-info">
+                <span>📝 ${count} Questions</span>
+                <span>🎯 Test Available</span>
+            </div>
+
+            <div class="chapter-actions">
+
+                <button
+                class="btn btn-outline"
+                onclick="startChapterPractice(${chapter.id})">
+
+                Practice
+
+                </button>
+
+                <button
+                class="btn btn-primary"
+                onclick="startChapterTest(${chapter.id})">
+
+                Test
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =================================================
+   SHUFFLE
+================================================= */
+
+function shuffle(array){
+
+    return [...array].sort(()=>Math.random()-0.5);
+
+}
+
+
+/* =================================================
+   START CHAPTER PRACTICE
+================================================= */
+
+function startChapterPractice(chapterId){
+
+    const questions =
+    questionBank.filter(q=>q.chapter===chapterId);
+
+    const chapter =
+    chapters.find(c=>c.id===chapterId);
+
+    startTest(
+        shuffle(questions),
+        {
+            title:chapter.name+" - Practice",
+            subtitle:"Practice Mode",
+            minutes:Math.max(10,questions.length*2),
+            type:"practice",
+            chapterId
+        }
+    );
+
+}
+
+
+/* =================================================
+   START CHAPTER TEST
+================================================= */
+
+function startChapterTest(chapterId){
+
+    const questions =
+    questionBank.filter(q=>q.chapter===chapterId);
+
+    const chapter =
+    chapters.find(c=>c.id===chapterId);
+
+    startTest(
+        shuffle(questions).slice(0,20),
+        {
+            title:chapter.name+" - Chapter Test",
+            subtitle:"Chapter Wise Test",
+            minutes:20,
+            type:"chapter",
+            chapterId
+        }
+    );
+
+}
+
+
+/* =================================================
+   FINAL EXAM
+================================================= */
+
+function startFinalExam(){
+
+    const selected =
+    shuffle(questionBank).slice(
+        0,
+        Math.min(100,questionBank.length)
+    );
+
+    startTest(
+        selected,
+        {
+            title:"CCC Final Mock Examination",
+            subtitle:"Final Exam Pattern",
+            minutes:90,
+            type:"final"
+        }
+    );
+
+}
+
+
+/* =================================================
+   RANDOM TEST
+================================================= */
+
+function startRandomTest(){
+
+    const selected =
+    shuffle(questionBank).slice(
+        0,
+        Math.min(25,questionBank.length)
+    );
+
+    startTest(
+        selected,
+        {
+            title:"Random Practice Test",
+            subtitle:"Mixed Random Questions",
+            minutes:25,
+            type:"random"
+        }
+    );
+
+}
+
+
+/* =================================================
+   WRONG QUESTION PRACTICE
+================================================= */
+
+function startWrongPractice(){
+
+    const stats = getStats();
+
+    if(!stats.wrongQuestions.length){
+
+        alert(
+        "Great! You don't have any saved wrong questions yet."
+        );
+
+        return;
+
+    }
+
+    const uniqueWrong =
+    [...new Set(stats.wrongQuestions)];
+
+    const questions =
+    questionBank.filter(
+        (q,index)=>uniqueWrong.includes(index)
+    );
+
+    startTest(
+        shuffle(questions),
+        {
+            title:"Wrong Answer Practice",
+            subtitle:"Improve Your Weak Areas",
+            minutes:Math.max(10,questions.length*2),
+            type:"wrong"
+        }
+    );
+
+}
+
+
+/* =================================================
+   START TEST
+================================================= */
+
+function startTest(questions,config){
+
+    if(!questions.length){
+
+        alert("No questions available.");
+
+        return;
+
+    }
+
+    currentQuestions = questions;
+    currentIndex = 0;
+
+    userAnswers =
+    new Array(currentQuestions.length).fill(null);
+
+    reviewQuestions =
+    new Array(currentQuestions.length).fill(false);
+
+    currentTestConfig = config;
+
+    document.getElementById("homeScreen").style.display="none";
+
+    document.getElementById("resultScreen").style.display="none";
+
+    document.getElementById("testScreen").style.display="block";
+
+    document.getElementById("testTitle").textContent =
+        config.title;
+
+    remainingSeconds = config.minutes*60;
+
+    startTimer();
+
+    renderQuestion();
+
+    renderPalette();
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =================================================
+   TIMER
+================================================= */
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+    updateTimerDisplay();
+
+    timerInterval = setInterval(()=>{
+
+        remainingSeconds--;
+
+        updateTimerDisplay();
+
+        if(remainingSeconds<=0){
+
+            clearInterval(timerInterval);
+
+            alert("Time is over! Your test will now be submitted.");
+
+            submitTest();
+
+        }
+
+    },1000);
+
+}
+
+
+function updateTimerDisplay(){
+
+    const minutes =
+    Math.floor(remainingSeconds/60);
+
+    const seconds =
+    remainingSeconds%60;
+
+    document.getElementById("timer").textContent =
+    String(minutes).padStart(2,"0")
+    +
+    ":"
+    +
+    String(seconds).padStart(2,"0");
+
+}
+
+
+/* =================================================
+   RENDER QUESTION
+================================================= */
+
+function renderQuestion(){
+
+    const q =
+    currentQuestions[currentIndex];
+
+    document.getElementById("testSubtitle").textContent =
+        `Question ${currentIndex+1} of ${currentQuestions.length}`;
+
+    document.getElementById("questionNumber").textContent =
+        `Question ${currentIndex+1}`;
+
+    const chapter =
+    chapters.find(c=>c.id===q.chapter);
+
+    document.getElementById("chapterName").textContent =
+        chapter ? chapter.name : "";
+
+    document.getElementById("questionText").textContent =
+        q.question;
+
+    const container =
+    document.getElementById("optionsContainer");
+
+    container.innerHTML = "";
+
+    const letters =
+    ["A","B","C","D"];
+
+    q.options.forEach((option,index)=>{
+
+        const div =
+        document.createElement("div");
+
+        div.className =
+        "option"
+        +
+        (
+            userAnswers[currentIndex]===index
+            ?
+            " selected"
+            :
+            ""
+        );
+
+        div.innerHTML = `
+
+        <div class="option-letter">
+        ${letters[index]}
+        </div>
+
+        <div>
+        ${option}
+        </div>
+
+        `;
+
+        div.onclick =
+        ()=>selectAnswer(index);
+
+        container.appendChild(div);
+
+    });
+
+    renderPalette();
+
+}
+
+
+/* =================================================
+   SELECT ANSWER
+================================================= */
+
+function selectAnswer(index){
+
+    userAnswers[currentIndex]=index;
+
+    renderQuestion();
+
+}
+
+
+/* =================================================
+   PREVIOUS / NEXT
+================================================= */
+
+function previousQuestion(){
+
+    if(currentIndex>0){
+
+        currentIndex--;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+function nextQuestion(){
+
+    if(currentIndex<currentQuestions.length-1){
+
+        currentIndex++;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+/* =================================================
+   MARK REVIEW
+================================================= */
+
+function markReview(){
+
+    reviewQuestions[currentIndex] =
+    !reviewQuestions[currentIndex];
+
+    renderPalette();
+
+}
+
+
+/* =================================================
+   PALETTE
+================================================= */
+
+function renderPalette(){
+
+    const palette =
+    document.getElementById("paletteGrid");
+
+    palette.innerHTML="";
+
+    currentQuestions.forEach((q,index)=>{
+
+        const btn =
+        document.createElement("button");
+
+        btn.className="palette-btn";
+
+        if(index===currentIndex)
+            btn.classList.add("current");
+
+        if(reviewQuestions[index])
+            btn.classList.add("review");
+
+        else if(userAnswers[index]!==null)
+            btn.classList.add("answered");
+
+        btn.textContent=index+1;
+
+        btn.onclick=()=>{
+
+            currentIndex=index;
+
+            renderQuestion();
+
+        };
+
+        palette.appendChild(btn);
+
+    });
+
+}
+
+
+/* =================================================
+   SUBMIT MODAL
+================================================= */
+
+function confirmSubmit(){
+
+    document.getElementById("submitModal").style.display="flex";
+
+}
+
+
+function closeModal(){
+
+    document.getElementById("submitModal").style.display="none";
+
+}
+
+
+/* =================================================
+   SUBMIT TEST
+================================================= */
+
+function submitTest(){
+
+    closeModal();
+
+    clearInterval(timerInterval);
+
+    let correct=0;
+    let wrong=0;
+    let unanswered=0;
+
+    const stats = getStats();
+
+    const wrongIndexes = [];
+
+    currentQuestions.forEach((q,index)=>{
+
+        if(userAnswers[index]===null){
+
+            unanswered++;
+
+        }
+
+        else if(userAnswers[index]===q.answer){
+
+            correct++;
+
+        }
+
+        else{
+
+            wrong++;
+
+            const originalIndex =
+            questionBank.findIndex(
+                original=>
+                original.question===q.question
+            );
+
+            if(originalIndex!==-1)
+                wrongIndexes.push(originalIndex);
+
+        }
+
+    });
+
+    const percentage =
+    Math.round(
+        (correct/currentQuestions.length)*100
+    );
+
+    stats.attempted +=
+    currentQuestions.length-unanswered;
+
+    stats.correct += correct;
+
+    stats.tests +=1;
+
+    stats.scores.push(percentage);
+
+    stats.wrongQuestions =
+    [...new Set([
+        ...stats.wrongQuestions,
+        ...wrongIndexes
+    ])];
+
+    saveStats(stats);
+
+    showResult(
+        correct,
+        wrong,
+        unanswered,
+        percentage
+    );
+
+}
+
+
+/* =================================================
+   SHOW RESULT
+================================================= */
+
+function showResult(
+correct,
+wrong,
+unanswered,
+percentage
+){
+
+    document.getElementById("testScreen").style.display="none";
+
+    document.getElementById("resultScreen").style.display="block";
+
+    document.getElementById("scorePercent").textContent =
+        percentage+"%";
+
+    document.getElementById("scoreText").textContent =
+        `${correct} / ${currentQuestions.length}`;
+
+    document.getElementById("resultCorrect").textContent =
+        correct;
+
+    document.getElementById("resultWrong").textContent =
+        wrong;
+
+    document.getElementById("resultUnanswered").textContent =
+        unanswered;
+
+    document.getElementById("resultPercentage").textContent =
+        percentage+"%";
+
+    let message="";
+
+    if(percentage>=80){
+
+        message =
+        "Excellent Performance! 🎉 Keep it up.";
+
+    }
+
+    else if(percentage>=60){
+
+        message =
+        "Good job! Keep practicing to improve more.";
+
+    }
+
+    else if(percentage>=40){
+
+        message =
+        "You need more practice. Don't give up!";
+
+    }
+
+    else{
+
+        message =
+        "Keep practicing chapter-wise questions.";
+
+    }
+
+    document.getElementById("resultMessage").textContent =
+        message;
+
+    document.getElementById("reviewContainer").style.display="none";
+
+    updateDashboard();
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =================================================
+   REVIEW ANSWERS
+================================================= */
+
+function reviewAnswers(){
+
+    const container =
+    document.getElementById("reviewContainer");
+
+    container.style.display="block";
+
+    container.innerHTML =
+    "<h2 style='margin-bottom:20px'>Answer Review</h2>";
+
+    currentQuestions.forEach((q,index)=>{
+
+        const userAnswer =
+        userAnswers[index];
+
+        const isCorrect =
+        userAnswer===q.answer;
+
+        let userText =
+        userAnswer===null
+        ?
+        "Not Answered"
+        :
+        q.options[userAnswer];
+
+        container.innerHTML += `
+
+        <div class="review-question">
+
+        <h4>
+        Q${index+1}. ${q.question}
+        </h4>
+
+        <div class="review-answer ${
+            isCorrect ? "correct" : "wrong"
+        }">
+
+        Your Answer:
+        ${userText}
+
+        </div>
+
+        <div class="review-answer correct">
+
+        Correct Answer:
+        ${q.options[q.answer]}
+
+        </div>
+
+        </div>
+
+        `;
+
+    });
+
+    container.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =================================================
+   RESTART TEST
+================================================= */
+
+function restartCurrentTest(){
+
+    if(!currentTestConfig) return;
+
+    startTest(
+        shuffle(currentQuestions),
+        currentTestConfig
+    );
+
+}
+
+
+/* =================================================
+   HOME
+================================================= */
+
+function goHome(){
+
+    clearInterval(timerInterval);
+
+    document.getElementById("testScreen").style.display="none";
+
+    document.getElementById("resultScreen").style.display="none";
+
+    document.getElementById("homeScreen").style.display="block";
+
+    updateDashboard();
+
+    window.scrollTo(0,0);
+
+}
+
+
+function showDashboard(){
+
+    goHome();
+
+}
+
+
+/* =================================================
+   DARK MODE
+================================================= */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "cccDarkMode",
+        document.body.classList.contains("dark")
+    );
+
+}
+
+
+function loadTheme(){
+
+    if(localStorage.getItem("cccDarkMode")==="true"){
+
+        document.body.classList.add("dark");
+
+    }
+
+}
+
+
+/* =================================================
+   INITIALIZE
+================================================= */
+
+loadTheme();
+
+renderChapters();
+
+updateDashboard();
+
+</script>
+
+</body>
+</html>
